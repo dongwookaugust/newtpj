@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.pjt.mapper.BoardMapper">
+
+	<select id="getDetaile" resultType="com.pjt.command.BoardVO">
+		select * from tbl_board where
+		board_num= #{board_num}
+	</select>
+	<insert id="register" parameterType="com.pjt.command.BoardVO">
+		insert into
+		tbl_board(board_category,board_title,board_content,user_id,board_strength,board_weakness,board_score)
+		VALUES(#{board_category},#{board_title},#{board_content},#{user_id},#{board_strength},#{board_weakness},#{board_score})
+	</insert>
+
+	<update id="modify" parameterType="com.pjt.command.BoardVO">
+		update tbl_board set
+		board_category=#{board_category},board_title=#{board_title},board_content=#{board_content},board_strength=#{board_strength},board_weakness=#{board_weakness},board_score=#{board_score}
+		where board_num= #{board_num}
+	</update>
+
+	<select id="search" resultType="com.pjt.command.BoardVO">
+		select * from tbl_board where
+		board_title like '%' || #{board_title} || '%' order by board_num
+	</select>
+
+	<select id="getlist" resultType="com.pjt.command.BoardVO">
+		select * from tbl_board
+	</select>
+
+	<!-- 페이징 쿼리 -->
+	<select id="pagingList" resultType="com.pjt.command.BoardVO"
+		parameterType="com.pjt.command.Criteria">
+		select * from
+		(select rownum as rnum, B.* from tbl_board B
+		where rownum &lt;= #{count_oracle} order by board_num desc)
+		where #{pageStart}&lt;=rnum
+	</select>
+
+	<select id="getTotal" resultType="int">
+		select count(*) from tbl_board
+	</select>
+
+	<select id="searchCount" resultType="int">
+		select count(*) from tbl_board where board_title like '%' || #{board_title}
+		|| '%' order by board_num
+	</select>
+
+	<insert id="imageEnroll">
+
+		<selectKey resultType="int" keyProperty="board_num"
+			order="AFTER">
+			SELECT MAX(board_num) FROM tbl_board
+		</selectKey>
+		insert into tbl_img(board_num, img_fileName, img_uploadPath, img_uuid)
+		values ((SELECT MAX(board_num) FROM tbl_board), #{img_fileName},
+		#{img_uploadPath}, #{img_uuid})
+	</insert>
+
+	<select id="top4_img" resultType="com.pjt.command.ImgVO">	
+		select DISTINCT i.board_num, i.img_filename,i.img_uploadpath,i.img_uuid from tbl_img i,
+		(select DISTINCT * from (select * from tbl_board order by board_view desc) where ROWNUM &lt;=4)
+	</select>
+	
+	<select id="top4" resultType="com.pjt.command.BoardVO">	
+		select DISTINCT * from (select * from tbl_board order by board_view desc) where rownum&lt;=4
+	</select>
+	
+	<select id="getImg" resultType="com.pjt.command.ImgVO">
+		select * from tbl_img where board_num = #{board_num}
+	</select>
+	
+	
+	<update id="recommend_Merge">
+		merge into tbl_recommend
+		using dual on(user_id = #{user_id} and
+		board_num = #{board_num})
+		when matched then update set
+		<choose>
+			<when test="recommend_check==1">
+				recommend_check = '0'
+			</when>
+			<otherwise>
+				recommend_check = '1'
+			</otherwise>
+		</choose>
+		when not matched then
+		insert(
+		board_num,
+		user_id
+		)values(
+		#{board_num},
+		#{user_id}
+		)
+	</update>
+
+	<select id="getRecommend" resultType="String">
+		select recommend_check from
+		tbl_recommend where board_num=#{board_num} and user_id=#{user_id}
+	</select>
+
+	<select id="recommendCount" resultType="int">
+		select count(*) from
+		tbl_recommend where board_num=#{board_num} and recommend_check=1
+	</select>
+
+	<update id="boardViewCount">
+		UPDATE tbl_board
+		SET board_view = board_view + 1
+		WHERE board_num = #{board_num}
+	</update>
+	
+	<delete id="delete">
+		delete from tbl_board where board_num=#{board_num}
+	</delete>
+
+</mapper>
+
