@@ -37,7 +37,7 @@
   
   	<script type="text/javascript">
 			$(document).ready(function(){
-				var msg = '${msg}''
+				var msg = '${msg}'
 				if(msg !=''){
 					alert(msg)
 				}

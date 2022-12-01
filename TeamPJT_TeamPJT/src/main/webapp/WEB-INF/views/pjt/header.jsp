@@ -95,6 +95,7 @@ h1 {
                     	<li class="nav-item"><button type="button" class="btn btn-secondary" onclick="search()">검색</button></li>
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="/pjt/main">메인</a></li>
                         <li class="nav-item"><a class="nav-link" href="/board/list">추천 리뷰</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/search/movie">주변 검색</a></li>
                         <c:choose >
                         	<c:when test="${empty id}">                      
                         		<li class="nav-item"><a class="nav-link" href="/member/login">로그인</a></li>
@@ -108,3 +109,4 @@ h1 {
                 </div>
             </div>
         </nav>
+
