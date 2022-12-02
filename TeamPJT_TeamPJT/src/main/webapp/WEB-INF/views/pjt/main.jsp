@@ -4,7 +4,43 @@
 <!DOCTYPE html>
 <html>
 <%@include file="header.jsp"%>
+<style>
+.main-view{
+	margin: auto;
+	margin-bottom: 20px;
+	margin-top: 50px;
+	text-align: center;
+}
+
+.main-view{width:1500px;height:450px;overflow:hidden;}
+	.main-view ul{width:calc(100% * 3);display:flex;animation:slide 8s infinite;}
+}
+ 	.main-view li{width:calc(100% / 3);height :300px;}
+	
+	@keyframes slide {
+	   0% {margin-left:0;} /* 0 ~ 10  : 정지 */
+      10% {margin-left:0;} /* 10 ~ 25 : 변이 */
+      25% {margin-left:-40%;} /* 25 ~ 35 : 정지 */
+      35% {margin-left:-40%;} /* 35 ~ 50 : 변이 */
+      50% {margin-left:-90%;}
+      60% {margin-left:-90%;}
+      100% {margin-left:0;}
+	}
+
+
+
+</style>
 <!-- Page Content-->
+<div class = "container">
+	<div class="main-view">
+		<ul>
+			<li><img src="/resources/img/movie2.jpg" width=100%></li>
+			<li><img src="/resources/img/movie4.jpg" width=100%></li>
+			<li><img src="/resources/img/movie.jpg" width=100%></li>
+		</ul>
+	</div>
+</div>
+
 <div class="container px-4 px-lg-5">
 	<!-- Heading Row-->
 	<div class="row gx-4 gx-lg-5 align-items-center my-5">
@@ -20,9 +56,10 @@
 			</c:otherwise>
 		</c:choose>
 		</div>
+			
 		<div class="col-lg-5">
 			<h1 class="font-weight-light">전체 게시물 조회수 top</h1>
-			<p>${ls[0].board_title} ${img0.img_uploadPath}ww</p>
+			<p>${ls[0].board_title} ${img0.img_uploadPath}</p>
 			<a class="btn btn-primary" href="/board/detaile?board_num=${ls[0].board_num }">더보기</a>
 		</div>
 	</div>
