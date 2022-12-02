@@ -9,7 +9,7 @@
 <body >
 <!-- Footer-->
         <footer class="py-5 bg-dark mt-auto ">
-            <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Made by 한인형/이동욱/방소희/최서진</p></div>
+            <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white"></p></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <style type="text/css">
-.row {
+.row2 {
    margin: auto ;
    align : center;  
    overflow-x: auto;
@@ -20,9 +20,9 @@
 </head>
 
 <body>
-<div class="row" style="width:1000px" align="center">
+<div class="row2" style="width:1000px" align="center">
 <h3>영화 상세정보</h3><br><hr>      
-  <div class="row" align="center">
+  <div class="row2" align="center">
   <div class="col-lg-7" align="center">
     <div class="card" align="center">
       <div class="card-body" align="center">  
