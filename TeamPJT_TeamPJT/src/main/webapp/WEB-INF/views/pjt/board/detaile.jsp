@@ -18,7 +18,7 @@
 			</div>
 			<div class="row">
 				<input type="text" class="col bg-light"	style="border: 2px solid #888;" value="작성자 : ${list.user_id}" readonly /> 
-				<input type="text" class="col bg-light" style="border: 2px solid #888;" value="카테고리 : ${list.board_category}" readonly /> 
+				<input type="text" class="col bg-light" style="border: 2px solid #888;" value="장르 : ${list.board_category}" readonly /> 
 				<input type="text" class="col bg-light" style="border: 2px solid #888;"	value="조회수 : ${list.board_view}" readonly /> 
 				<input type="text" class="col bg-light" style="border: 2px solid #888;" value="작성일 : ${list.board_date}" readonly />
 			</div>
@@ -70,7 +70,7 @@
 						<c:choose>
 							<c:when test="${sessionScope.id eq list.user_id }">
 								<button type="button" class="btn btn-secondary" onclick="location.href='modify?board_num=${param.board_num}'">수정</button>
-								<button type="button" class="btn btn-secondary" onclick="location.href='delete?board_num=${param.board_num}'">삭제</button>			
+								<button type="button" class="btn btn-secondary" id = "delete_btn" name="delete_btn" onclick="location.href='delete?board_num=${param.board_num}'">삭제</button>			
 							</c:when> 
 							<c:otherwise>
 								<button type="button" class="btn btn-secondary" onclick="location.href='modify?board_num=${param.board_num}'" disabled>수정</button>
@@ -142,21 +142,23 @@
 
 	
 	<script type="text/javascript">
-	<!-- 댓글 -->
-		function addReply() {
-			var user_id = $('#user_id').val()
-			var reply_coment = $('#reply_coment').val()
-			var board_num = ${param.board_num}
-			if(user_id!=null){
-			
-			location.href = "/replies/addReply?board_num=" + board_num
-					+ "&user_id=" + user_id + "&reply_coment=" + reply_coment
-			}else {
-				alert("댓글작성은 로그인 후 사용가능합니다.")
-			}
+    function addReply() {
+        var user_id = $('#user_id').val()
+        var reply_coment = $('#reply_coment').val()
+        var board_num = ${param.board_num}
+        if(user_id!=null){
+         if(reply_coment!=''){
+            
+           location.href = "/replies/addReply?board_num=" + board_num
+              + "&user_id=" + user_id + "&reply_coment=" + reply_coment
+         }else {
+            alert ("댓글내용을 입력해주세요.")
+         }
+        }else {
+           alert("댓글작성은 로그인 후 사용가능합니다.")
+        }
 
-		}
-		
+     }
 		<!--추천-->
 		$(document).ready(function () {
 			const urlParams = new URL(location.href).searchParams;
@@ -196,6 +198,13 @@
 		  });
 		  });
 		
+		 $("#delete_btn").on("click", function(e){
+		      {
+		     	  alert("삭제되었습니다.");
+
+		         return;
+		      }
+		   });
 		
 	</script>
 </body>

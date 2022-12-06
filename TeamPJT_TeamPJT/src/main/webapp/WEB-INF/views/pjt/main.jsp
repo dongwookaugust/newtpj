@@ -48,7 +48,7 @@
 		<c:choose>
 			<c:when test="${!empty img0.img_uploadPath}">
 				<img class="img-fluid rounded mb-4 mb-lg-0"
-				src="/img/${img0.img_uploadPath}/${img0.img_uuid}_${img0.img_fileName}" alt="..." />
+				src="/board/display?filename=${img0.img_uploadPath}/${img0.img_uuid}_${img0.img_fileName}" alt="..." />
 			</c:when>
 			<c:otherwise>
 				<img class="img-fluid rounded mb-4 mb-lg-0"
@@ -76,7 +76,7 @@
 			<div class="card" style="width: 18rem;">
 			<c:choose>
 				<c:when test="${!empty img1.img_uploadPath}">
-					<img src="/img/${img1.img_uploadPath}/${img1.img_uuid}_${img1.img_fileName}" class="card-img-top" alt="...">
+					<img src="/board/display?filename=${img1.img_uploadPath}/${img1.img_uuid}_${img1.img_fileName}" class="card-img-top" alt="...">
 				</c:when>
 				<c:otherwise>
 					<img src="/resources/img/noimg.png" class="card-img-top" alt="...">
@@ -84,9 +84,9 @@
 			</c:choose>
 				
 				<div class="card-body">
-					<h5 class="card-title">제목</h5>
+					<h5 class="card-title">${ls[1].board_title}</h5>
 					
-					<a href="#" class="btn btn-primary">더보기</a>
+					<a href="/board/detaile?board_num=${ls[1].board_num }" class="btn btn-primary">더보기</a>
 				</div>
 			</div>
 		</div>
@@ -95,16 +95,16 @@
 			<div class="card" style="width: 18rem;">
 				<c:choose>
 				<c:when test="${!empty img2.img_uploadPath}">
-					<img src="/img/${img2.img_uploadPath}/${img2.img_uuid}_${img2.img_fileName}" class="card-img-top" alt="...">
+					<img src="/board/display?filename=${img2.img_uploadPath}/${img2.img_uuid}_${img2.img_fileName}" class="card-img-top" alt="...">
 				</c:when>
 				<c:otherwise>
 					<img src="/resources/img/noimg.png" class="card-img-top" alt="...">
 				</c:otherwise>
 			</c:choose>
 				<div class="card-body">
-					<h5 class="card-title">제목</h5>
+					<h5 class="card-title">${ls[2].board_title}</h5>
 					
-					<a href="#" class="btn btn-primary">더보기</a>
+					<a href="/board/detaile?board_num=${ls[2].board_num }" class="btn btn-primary">더보기</a>
 				</div>
 			</div>
 		</div>
@@ -114,16 +114,16 @@
 			<div class="card" style="width: 18rem;">
 				<c:choose>
 				<c:when test="${!empty img3.img_uploadPath}">
-					<img src="/img/${img3.img_uploadPath}/${img3.img_uuid}_${img3.img_fileName}" class="card-img-top" alt="...">
+					<img src="/board/display?filename=${img3.img_uploadPath}/${img3.img_uuid}_${img3.img_fileName}" class="card-img-top" alt="...">
 				</c:when>
 				<c:otherwise>
 					<img src="/resources/img/noimg.png" class="card-img-top" alt="...">
 				</c:otherwise>
 			</c:choose>
 				<div class="card-body">
-					<h5 class="card-title">제목</h5>
+					<h5 class="card-title">${ls[3].board_title}</h5>
 					
-					<a href="#" class="btn btn-primary">더보기</a>
+					<a href="/board/detaile?board_num=${ls[3].board_num }" class="btn btn-primary">더보기</a>
 				</div>
 			</div>
 		</div>

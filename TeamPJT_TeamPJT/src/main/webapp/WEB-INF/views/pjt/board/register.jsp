@@ -17,7 +17,7 @@
 			</div>
 			<div class="row">
 				<input type="text" class="col bg-light"	style="border: 2px solid #888;" placeholder="작성자" name="user_id" id="user_id" value="${sessionScope.id}" readonly/>
-				<input type="text" class="col bg-light"	style="border: 2px solid #888;" placeholder="카테고리"	name="board_category" id="board_category"/> <input type="text" class="col bg-light" style="border: 2px solid #888;" placeholder="조회수" readonly /> 
+				<input type="text" class="col bg-light"	style="border: 2px solid #888;" placeholder="장르"	name="board_category" id="board_category"/> <input type="text" class="col bg-light" style="border: 2px solid #888;" placeholder="조회수" readonly /> 
 				<input type="text" class="col bg-light" style="border: 2px solid #888;"	placeholder="작성일" readonly />
 			</div>
 		</div>
@@ -45,7 +45,7 @@
 				<button type="button" id="btn-ordered-list">OL</button>
 				<button type="button" id="btn-unordered-list">UL</button>
 				<label class="input-file-button" for="input-file">이미지 첨부<input
-				type="file" id="input-file" style="display: none" name="uploadFile" /></label>
+				type="file" id="input-file" style="display: none" name="uploadFile" accept="image/*"/></label>
 			</div>
 			<div id="editor" contenteditable="true" class="p-5 mb-4 bg-light rounded-3 w-100" >
 				

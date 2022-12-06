@@ -118,5 +118,9 @@ public class BoardServiceImpl implements BoardService{
 		bmp.delete(board_num);
 		
 	}
-	
+	@Override
+	public void deleteimg(int board_num) {
+		bmp.deleteimg(board_num);
+		
+	}
 }

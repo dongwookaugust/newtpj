@@ -28,7 +28,6 @@
 					<th class="text-center" width=10%>아이디</th>
 					<th class="text-center" width=6%>평점</th>
 					<th class="text-center" width=10%>조회수</th>
-					<th class="text-center" width=6%>추천</th>
 					<th class="text-center" width=10%>작성일</th>			
 				</tr>
 				<c:forEach var="list" items="${board_list }">
@@ -41,7 +40,6 @@
 						<td class="text-center" width=10%>${list.user_id }</td>
 						<td class="text-center" width=5% style="color: gold;"><c:forEach var="a" begin="1" end="${list.board_score }">★</c:forEach></td>
 						<td class="text-center" width=10%>${list.board_view }</td>
-						<td class="text-center" width=5%></td>
 						<td class="text-center" width=10%>
 						<fmt:formatDate	value="${list.board_date}" pattern="yyyy-MM-dd" /></td>
 					</tr>

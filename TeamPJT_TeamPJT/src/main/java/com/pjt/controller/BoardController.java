@@ -35,6 +35,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.pjt.command.BoardVO;
 
@@ -42,6 +43,7 @@ import com.pjt.command.Criteria;
 import com.pjt.command.ImgVO;
 import com.pjt.command.PageVO;
 import com.pjt.command.RecommendVO;
+import com.pjt.member.commend.MemberVO;
 import com.pjt.service.BoardService;
 import com.pjt.service.ReplyService;
 
@@ -68,6 +70,7 @@ public class BoardController {
             for (Cookie cookie1 : cookies) {
                 if (cookie1.getName().equals("postView")) {
                     oldCookie = cookie1;
+                    
                 }
             }
         }
@@ -77,14 +80,14 @@ public class BoardController {
             	boardService.boardViewCount(board_num);
                 oldCookie.setValue(oldCookie.getValue() + "_[" + board_num + "]");
                 oldCookie.setPath("/");
-                oldCookie.setMaxAge(60 * 60 * 24);
+                oldCookie.setMaxAge(60 * 5);
                 response.addCookie(oldCookie);
             }
         } else {
         	boardService.boardViewCount(board_num);
             Cookie newCookie = new Cookie("postView","[" + board_num + "]");
             newCookie.setPath("/");
-            newCookie.setMaxAge(60 * 60 * 24);
+            newCookie.setMaxAge(60 * 5);
             response.addCookie(newCookie);
         }
     	
@@ -264,13 +267,16 @@ public class BoardController {
 	}
 	
 	@RequestMapping("/delete")
-	public String delete(int board_num) {
+	public String delete(int board_num, RedirectAttributes RA) {
 //		String id = (String)session.getAttribute("id");
 //		if(id.equals(boardService.getDetaile(board_num).getUser_id())) {
 //			boardService.delete(board_num);
 //		}
-		boardService.delete(board_num);
+		 boardService.deleteimg(board_num);
+		 boardService.delete(board_num);
+		
+			
 		return "redirect:/board/list";
 	}
+	
 }
-
