@@ -11,6 +11,7 @@
 <body>
 	<div class="container" align="left">
 		<div class="row">
+		<hr>
 			<h1>전체 게시판</h1>
 		
 				<div align="right">	
@@ -35,7 +36,7 @@
 						<td class="text-center" width=5%>${list.board_num}</td>
 						<td class="text-center" width=10%>${list.board_category }</td>
 						<td class="text-center" width=15%>
-						<a href="detaile?board_num=${list.board_num }&pageNum=${pageMaker.cri.pageNum}&count=${pageMaker.cri.count}" style="color: black;  text-decoration: none;">${list.board_title }</a></td>
+						<a href="detaile?board_num=${list.board_num }&pageNum=${pageMaker.cri.pageNum}&count=${pageMaker.cri.count}" style="color: gray;   text-decoration: underline;">${list.board_title }</a></td>
 						<td class="text-center" width=25%>${list.board_content }</td>
 						<td class="text-center" width=10%>${list.user_id }</td>
 						<td class="text-center" width=5% style="color: gold;"><c:forEach var="a" begin="1" end="${list.board_score }">★</c:forEach></td>

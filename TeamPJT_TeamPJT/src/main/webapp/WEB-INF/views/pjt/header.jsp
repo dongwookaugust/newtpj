@@ -94,7 +94,7 @@ h1 {
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    	<li class="nav-item"><input type="text" name="title" id="title" style="padding-left: 10px; padding-top: 10px" placeholder="게시글 제목" ></li>
+                    	<li class="nav-item"><input type="text" name="title" id="title" style="padding-left: 10px; padding-top: 10px" placeholder="리뷰 검색" ></li>
                     	<li class="nav-item"><button type="button" class="btn btn-secondary" onclick="search()">검색</button></li>
                     	<li class="nav-item"><a class="nav-link"  href="/movie/list">영화</a></li>
                         <li class="nav-item"><a class="nav-link" href="/board/list">영화 리뷰</a></li>

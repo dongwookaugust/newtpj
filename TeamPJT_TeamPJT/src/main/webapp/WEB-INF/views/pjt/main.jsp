@@ -59,7 +59,8 @@
 			
 		<div class="col-lg-5">
 			<h1 class="font-weight-light">전체 게시물 조회수 top</h1>
-			<p>${ls[0].board_title} ${img0.img_uploadPath}</p>
+			<h5 class="card-title">${ls[0].board_title} </h5>
+			<h5 class="card-title"> ${img0.img_uploadPath} </h5>
 			<a class="btn btn-primary" href="/board/detaile?board_num=${ls[0].board_num }">더보기</a>
 		</div>
 	</div>
@@ -84,8 +85,8 @@
 			</c:choose>
 				
 				<div class="card-body">
-					<h5 class="card-title">${ls[1].board_title}</h5>
-					
+					<h5 class="card-title">${ls[1].board_title} </h5>
+					<h5 class="card-title"> ${img1.img_uploadPath} </h5>
 					<a href="/board/detaile?board_num=${ls[1].board_num }" class="btn btn-primary">더보기</a>
 				</div>
 			</div>
@@ -103,7 +104,7 @@
 			</c:choose>
 				<div class="card-body">
 					<h5 class="card-title">${ls[2].board_title}</h5>
-					
+					<h5 class="card-title"> ${img2.img_uploadPath} </h5>
 					<a href="/board/detaile?board_num=${ls[2].board_num }" class="btn btn-primary">더보기</a>
 				</div>
 			</div>
@@ -122,7 +123,7 @@
 			</c:choose>
 				<div class="card-body">
 					<h5 class="card-title">${ls[3].board_title}</h5>
-					
+					<h5 class="card-title"> ${img3.img_uploadPath} </h5>
 					<a href="/board/detaile?board_num=${ls[3].board_num }" class="btn btn-primary">더보기</a>
 				</div>
 			</div>
